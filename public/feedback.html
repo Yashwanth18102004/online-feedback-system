@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share Your Feedback | CodSoft</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="/" class="brand">CodSoft Feedback</a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/feedback.html">Give Feedback</a>
+      <a href="/admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="formCard" class="card">
+      <h2>Share Your Feedback</h2>
+      <p class="subtitle">We'd love to hear from you!</p>
+
+      <form id="feedbackForm" novalidate>
+        <div class="form-group" id="nameGroup">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Rahul Kumar" />
+          <div class="field-error">Name cannot be empty.</div>
+        </div>
+
+        <div class="form-group" id="emailGroup">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="e.g. rahul@example.com" />
+          <div class="field-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group" id="ratingGroup">
+          <label>Rating</label>
+          <div class="rating-select" id="ratingSelect">
+            <span class="star" data-value="5">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="1">★</span>
+          </div>
+          <div class="field-error">Please select a rating.</div>
+        </div>
+
+        <div class="form-group" id="messageGroup">
+          <label for="message">Your Feedback Message</label>
+          <textarea id="message" name="message" placeholder="Write your feedback here..."></textarea>
+          <div class="field-error">Feedback message must be at least 5 characters.</div>
+        </div>
+
+        <div id="formServerError" class="field-error" style="display:none; margin-bottom: 14px;"></div>
+
+        <button type="submit" class="btn btn-primary full-width">Submit Feedback</button>
+      </form>
+    </div>
+
+    <div id="successCard" class="card hidden">
+      <div class="success-box">
+        <div class="check">✅</div>
+        <h2>Thank You!</h2>
+        <p>Your feedback has been submitted successfully. We appreciate your time and valuable opinion.</p>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/feedback.js"></script>
+</body>
+</html>

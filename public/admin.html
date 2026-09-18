@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | CodSoft Feedback</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="/" class="brand">CodSoft Feedback</a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/feedback.html">Give Feedback</a>
+      <a href="/admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <!-- Simple passcode gate (demo-level protection, not real auth) -->
+  <div id="loginView" class="admin-login card">
+    <h2>Admin Login</h2>
+    <p class="subtitle">Enter the admin passcode to manage feedback.</p>
+    <div class="form-group">
+      <label for="passcode">Passcode</label>
+      <input type="password" id="passcode" placeholder="Enter passcode" />
+    </div>
+    <div id="loginError" class="field-error" style="display:none;">Incorrect passcode. Try again.</div>
+    <button id="loginBtn" class="btn btn-primary full-width">Login</button>
+  </div>
+
+  <div id="dashboardView" class="admin-layout hidden">
+    <aside class="sidebar">
+      <span class="brand">Admin</span>
+      <a href="#" class="active">Dashboard</a>
+      <a href="/">Home</a>
+      <a href="/feedback.html">Feedback Form</a>
+      <a href="#" id="logoutLink">Logout</a>
+    </aside>
+
+    <main class="admin-main">
+      <h2>Feedback Management</h2>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-number" id="statTotal">0</span>
+          <span class="stat-label">Total Feedback</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statAvg">0</span>
+          <span class="stat-label">Avg Rating</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statFiveStar">0</span>
+          <span class="stat-label">5-Star Reviews</span>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="Search by name, email or message..." />
+        <select id="ratingFilter">
+          <option value="">All Ratings</option>
+          <option value="5">5 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="2">2 Stars</option>
+          <option value="1">1 Star</option>
+        </select>
+        <select id="sortOrder">
+          <option value="-createdAt">Newest First</option>
+          <option value="createdAt">Oldest First</option>
+        </select>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Rating</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="feedbackTableBody">
+          <tr><td colspan="6" class="empty-state">Loading feedback...</td></tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
